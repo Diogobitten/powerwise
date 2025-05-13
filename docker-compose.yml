@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  oracle:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: oracle-db
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: fiap25
+      APP_USER: rm558408
+      APP_USER_PASSWORD: fiap25
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'SELECT 1 FROM DUAL;' | sqlplus -s rm558408/fiap25@//localhost:1521/XEPDB1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  powerwise-app:
+    build: .
+    container_name: powerwise-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      oracle:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@oracle-db:1521/XEPDB1
+      SPRING_DATASOURCE_USERNAME: rm558408
+      SPRING_DATASOURCE_PASSWORD: fiap25
