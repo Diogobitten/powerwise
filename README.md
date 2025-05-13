@@ -4,7 +4,7 @@ Powerwise é uma API RESTful desenvolvida com Java e Spring Boot, com foco em ef
 
 ## 📋 Requisitos Atendidos
 
-- ✅ **Mínimo de 4 endpoints RESTful**
+- ✅ **5 endpoints RESTful**
 - ✅ **Validações e boas práticas com DTOs**
 - ✅ **Tratamento de exceções**
 - ✅ **Segurança com Spring Security**
