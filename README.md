@@ -15,6 +15,11 @@ Powerwise é uma API RESTful desenvolvida com Java e Spring Boot, com foco em ef
 
 ---
 
+![insonomia](https://github.com/user-attachments/assets/5261beb0-21d8-4012-b086-979a1198298b)
+
+
+---
+
 ## 🚀 Endpoints Disponíveis
 
 Base URL: `http://localhost:8080/api/consumos`
